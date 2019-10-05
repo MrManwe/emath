@@ -1,12 +1,13 @@
 #include "pch.h"
-#include "mtl/vec.h"
+#include "emath/vec.h"
 
-struct MtlCoreFixture
+struct emathCoreFixture
 {
 	
 };
 
-using namespace mtl;
+using namespace emath;
+
 
 
 
@@ -23,7 +24,7 @@ typedef combine_lists<Types, Dimensions>::type vector_types;
 
 BOOST_AUTO_TEST_SUITE(vec_base)
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_static_structure, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_static_structure, Type, vector_types, emathCoreFixture)
 { 
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -31,7 +32,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_static_structure, Type, vector_types, MtlC
 	//BOOST_TEST_REQUIRE(true);
 }
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_sum_01, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_sum_01, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -56,7 +57,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_sum_01, Type, vector_types, MtlCoreFixture
 	}
 }
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_diff_01, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_diff_01, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -81,7 +82,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_diff_01, Type, vector_types, MtlCoreFixtur
 	}
 }
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_neg_01, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_neg_01, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -104,7 +105,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_neg_01, Type, vector_types, MtlCoreFixture
 }
 
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_01, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_01, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -122,7 +123,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_01, Type, vector_types, MtlCoreFixture)
 	BOOST_TEST_REQUIRE(eq);
 }
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_02, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_02, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;
@@ -140,7 +141,7 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_02, Type, vector_types, MtlCoreFixture)
 	BOOST_TEST_REQUIRE(!eq);
 }
 
-BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_03, Type, vector_types, MtlCoreFixture)
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_eq_03, Type, vector_types, emathCoreFixture)
 {
 	using T = typename Type::first_type;
 	const size_t Dim = Type::second_type::Dim;

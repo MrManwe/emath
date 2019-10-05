@@ -7,27 +7,23 @@
     <Filter Include="src">
       <UniqueIdentifier>{a5a20818-9f0c-44db-bf28-80c97fa90fd8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\mtl">
+    <Filter Include="include\emath">
       <UniqueIdentifier>{4359428b-d4ec-4d98-9da0-663f96ae1d24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="include\mtl\detail">
+    <Filter Include="include\emath\detail">
       <UniqueIdentifier>{bc8d889b-cfce-49e7-9ba8-c3f295e28a48}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\code\mtl\src\pch.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClCompile Include="..\..\code\emath\src\pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\code\mtl\src\pch.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\..\code\emath\src\pch.h" />
+    <ClInclude Include="..\..\code\emath\include\emath\detail\vec_impl.h">
+      <Filter>include\emath\detail</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\code\mtl\include\mtl\detail\vec_impl.h">
-      <Filter>include\mtl\detail</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\code\mtl\include\mtl\vec.h">
-      <Filter>include\mtl</Filter>
+    <ClInclude Include="..\..\code\emath\include\emath\vec.h">
+      <Filter>include\emath</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 #include "detail/vec_impl.h"
-namespace mtl
+namespace emath
 {
 	template<size_t Dim, typename T>
 	class vec: public detail::vec_impl<Dim, T>
@@ -122,9 +122,9 @@ namespace mtl
 }
 
 template<size_t Dim, typename T1, typename T2, typename R = decltype(std::declval<T1>() + std::declval<T2>())>
-mtl::vec<Dim, R> operator+ (const mtl::vec<Dim, T1>& i_v1, const mtl::vec<Dim, T2>& i_v2)
+emath::vec<Dim, R> operator+ (const emath::vec<Dim, T1>& i_v1, const emath::vec<Dim, T2>& i_v2)
 {
-	mtl::vec<Dim, R> result;
+	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
 	{
 		result[i] = i_v1[i] + i_v2[i];
@@ -133,9 +133,9 @@ mtl::vec<Dim, R> operator+ (const mtl::vec<Dim, T1>& i_v1, const mtl::vec<Dim, T
 }
 
 template<size_t Dim, typename T1, typename T2, typename R = decltype(std::declval<T1>() - std::declval<T2>())>
-mtl::vec<Dim, R> operator- (const mtl::vec<Dim, T1> & i_v1, const mtl::vec<Dim, T2> & i_v2)
+emath::vec<Dim, R> operator- (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
 {
-	mtl::vec<Dim, R> result;
+	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
 	{
 		result[i] = i_v1[i] - i_v2[i];
@@ -144,9 +144,9 @@ mtl::vec<Dim, R> operator- (const mtl::vec<Dim, T1> & i_v1, const mtl::vec<Dim, 
 }
 
 template<size_t Dim, typename T, typename R = decltype(-std::declval<T>())>
-mtl::vec<Dim, R> operator- (const mtl::vec<Dim, T> & i_v1)
+emath::vec<Dim, R> operator- (const emath::vec<Dim, T> & i_v1)
 {
-	mtl::vec<Dim, R> result;
+	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
 	{
 		result[i] = -i_v1[i];
@@ -155,7 +155,7 @@ mtl::vec<Dim, R> operator- (const mtl::vec<Dim, T> & i_v1)
 }
 
 template<size_t Dim, typename T1, typename T2>
-bool operator== (const mtl::vec<Dim, T1> & i_v1, const mtl::vec<Dim, T2> & i_v2)
+bool operator== (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
 {
 	bool equal = true;
 	for (size_t i = 0; i < Dim; ++i)

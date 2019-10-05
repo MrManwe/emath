@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mtl", "mtl.vcxproj", "{07476C48-DA35-4883-BC65-20458F553ECA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "emath", "emath.vcxproj", "{07476C48-DA35-4883-BC65-20458F553ECA}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tests", "Tests.vcxproj", "{1DD50016-1F6A-4C40-BA4F-48CE99820565}"
 	ProjectSection(ProjectDependencies) = postProject
