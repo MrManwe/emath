@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{9401650c-f55d-4abc-b887-79338a9e44a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{66d3fcb3-329e-4955-8347-51fbdd93309c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\code\ocl\include\ocl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\src\pch.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\IOclParser.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\OclParserFactory.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\src\OclParserSpirit.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\ocl_common.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\OclExpression.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\Result.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\Grammar.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\Ref.hpp">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\ocl\include\ExpressionParseInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\code\ocl\src\pch.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ocl\src\OclParserFactory.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ocl\src\OclParserSpirit.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ocl\src\Result.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\code\ocl\src\OclExpression.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

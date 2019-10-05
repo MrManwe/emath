@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+prj/visualstudio2017/.vs/*
+prj/visualstudio2017/packages/*
+prj/visualstudio2017/x64/*
