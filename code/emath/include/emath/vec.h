@@ -122,7 +122,7 @@ namespace emath
 }
 
 template<size_t Dim, typename T1, typename T2, typename R = decltype(std::declval<T1>() + std::declval<T2>())>
-emath::vec<Dim, R> operator+ (const emath::vec<Dim, T1>& i_v1, const emath::vec<Dim, T2>& i_v2)
+inline emath::vec<Dim, R> operator+ (const emath::vec<Dim, T1>& i_v1, const emath::vec<Dim, T2>& i_v2)
 {
 	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
@@ -133,7 +133,7 @@ emath::vec<Dim, R> operator+ (const emath::vec<Dim, T1>& i_v1, const emath::vec<
 }
 
 template<size_t Dim, typename T1, typename T2, typename R = decltype(std::declval<T1>() - std::declval<T2>())>
-emath::vec<Dim, R> operator- (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
+inline emath::vec<Dim, R> operator- (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
 {
 	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
@@ -144,7 +144,7 @@ emath::vec<Dim, R> operator- (const emath::vec<Dim, T1> & i_v1, const emath::vec
 }
 
 template<size_t Dim, typename T, typename R = decltype(-std::declval<T>())>
-emath::vec<Dim, R> operator- (const emath::vec<Dim, T> & i_v1)
+inline emath::vec<Dim, R> operator- (const emath::vec<Dim, T> & i_v1)
 {
 	emath::vec<Dim, R> result;
 	for (size_t i = 0; i < Dim; ++i)
@@ -155,7 +155,7 @@ emath::vec<Dim, R> operator- (const emath::vec<Dim, T> & i_v1)
 }
 
 template<size_t Dim, typename T1, typename T2>
-bool operator== (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
+inline bool operator== (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
 {
 	bool equal = true;
 	for (size_t i = 0; i < Dim; ++i)
@@ -163,4 +163,23 @@ bool operator== (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i
 		equal = equal &&  (i_v1[i] == i_v2[i]);
 	}
 	return equal;
+}
+
+template<size_t Dim, typename T1, typename T2>
+inline bool operator!= (const emath::vec<Dim, T1>& i_v1, const emath::vec<Dim, T2>& i_v2)
+{
+	return !(i_v1 == i_v2);
+}
+
+template<typename T1, typename T2>
+inline auto operator* (const emath::vec<1, T1> & i_v1, const emath::vec<1, T2> & i_v2)
+{
+	return i_v1.x * i_v2.x;
+}
+
+template<size_t Dim, typename T1, typename T2>
+inline auto operator* (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
+{
+	typename detail:: template dot<T1, T2, Dim, Dim - 1> dotter;
+	return dotter(i_v1, i_v2);
 }
