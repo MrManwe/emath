@@ -25,5 +25,11 @@
     <ClInclude Include="..\..\code\emath\include\emath\vec.h">
       <Filter>include\emath</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\emath\include\emath\measure.h">
+      <Filter>include\emath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\emath\include\emath\unit.h">
+      <Filter>include\emath</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

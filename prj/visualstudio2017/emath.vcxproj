@@ -25,6 +25,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\emath\include\emath\detail\vec_impl.h" />
+    <ClInclude Include="..\..\code\emath\include\emath\measure.h" />
+    <ClInclude Include="..\..\code\emath\include\emath\unit.h" />
     <ClInclude Include="..\..\code\emath\include\emath\vec.h" />
     <ClInclude Include="..\..\code\emath\src\pch.h" />
   </ItemGroup>
