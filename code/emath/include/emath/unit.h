@@ -60,22 +60,28 @@ namespace emath
 		};
 
 		template<typename T, typename Ratio, typename Unit>
-		class specific_unit
+		class specific_measure
 		{
 		public:
 			typedef Ratio Ratio;
 			typedef T underlying_t;
 			typedef Unit Unit;
-			specific_unit(T i_value)
+			specific_measure(T i_value)
 				: m_value(i_value)
 			{
 
 			}
 
+			specific_measure(const specific_measure<T, Ratio, Unit>& i_other) = delete;
+			specific_measure(specific_measure<T, Ratio, Unit>&& i_other) = delete;
+			specific_measure() = delete;
+
 			T value() const
 			{
 				return m_value;
 			}
+
+			specific_measure<T, Ratio, Unit> operator= (const specific_measure<T, Ratio, Unit>& i_other) = delete;
 
 		private:
 			T m_value;
@@ -91,18 +97,18 @@ namespace emath
 		using time_def = unit::si<0, 1, 0>;
 		using speed_def = unit::si<1, -1, 0>;
 
-		using units = unit::specific_unit<float, std::ratio<1, 1>, scalar_def>;
+		using units = unit::specific_measure<float, std::ratio<1, 1>, scalar_def>;
 
-		using meters = unit::specific_unit<float, std::ratio<1, 1>, distance_def>;
-		using kilometers = unit::specific_unit<float, std::ratio<1000, 1>, distance_def>;
+		using meters = unit::specific_measure<float, std::ratio<1, 1>, distance_def>;
+		using kilometers = unit::specific_measure<float, std::ratio<1000, 1>, distance_def>;
 
-		using meters2 = unit::specific_unit<float, std::ratio<1, 1>, surface_def>;
-		using kilometers2 = unit::specific_unit<float, std::ratio<1000000, 1>, surface_def>;
+		using meters2 = unit::specific_measure<float, std::ratio<1, 1>, surface_def>;
+		using kilometers2 = unit::specific_measure<float, std::ratio<1000000, 1>, surface_def>;
 
-		using seconds = unit::specific_unit<float, std::ratio<1, 1>, time_def>;
-		using hours = unit::specific_unit<float, std::ratio<3600, 1>, time_def>;
+		using seconds = unit::specific_measure<float, std::ratio<1, 1>, time_def>;
+		using hours = unit::specific_measure<float, std::ratio<3600, 1>, time_def>;
 
-		using meters_second = unit::specific_unit<float, std::ratio<1, 1>, speed_def>;
-		using kilometers_hour = unit::specific_unit<float, std::ratio<1000, 3600>, speed_def>;
+		using meters_second = unit::specific_measure<float, std::ratio<1, 1>, speed_def>;
+		using kilometers_hour = unit::specific_measure<float, std::ratio<1000, 3600>, speed_def>;
 	}
 }

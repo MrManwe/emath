@@ -9,8 +9,11 @@ namespace emath
 	class measure
 	{
 	public:
+
+		measure() = default;
+
 		template<std::intmax_t Num, std::intmax_t Denom>
-		measure(unit::specific_unit<T, std::ratio<Num, Denom>, Unit> i_specific)
+		measure(const unit::specific_measure<T, std::ratio<Num, Denom>, Unit>& i_specific)
 			: m_value((i_specific.value() * Num) / Denom)
 		{
 
@@ -37,12 +40,6 @@ namespace emath
 		template<typename T, typename U1, typename U2> friend measure<T, typename unit::sub<U1, U2>::type> operator- (const measure<T, U1>& i_left, const measure<T, U2>& i_right);
 		template<typename T, typename U1, typename U2> friend measure<T, typename unit::mult<U1, U2>::type> operator* (const measure<T, U1>& i_left, const measure<T, U2>& i_right);
 		template<typename T, typename U1, typename U2> friend measure<T, typename unit::div<U1, U2>::type> operator/ (const measure<T, U1>& i_left, const measure<T, U2>& i_right);
-
-		//template<typename U2>
-		//friend measure<T, typename unit::sum<Unit, U2>::type> operator+ (const measure<T, Unit>& i_left, const measure<T, U2>& i_right);
-		//
-		//template<typename U1>
-		//friend measure<T, typename unit::sum<U1, Unit>::type> operator+ (const measure<T, U1>& i_left, const measure<T, Unit>& i_right);
 	};
 
 	template<typename T, typename U1, typename U2>
@@ -67,6 +64,44 @@ namespace emath
 	measure<T, typename unit::div<U1, U2>::type> operator/ (const measure<T, U1>& i_left, const measure<T, U2>& i_right)
 	{
 		return measure<T, typename unit::div<U1, U2>::type>(i_left.m_value / i_right.m_value);
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	template<typename T, typename U1, typename U2, typename Ratio>
+	measure<T, typename unit::mult<U1, U2>::type> operator* (const measure<T, U1>& i_left, const unit::specific_measure<T, Ratio, U2>& i_right)
+	{
+		return i_left * measure<T, U2>(i_right);
+	}
+
+	template<typename T, typename U1, typename U2, typename Ratio>
+	measure<T, typename unit::mult<U1, U2>::type> operator* (const unit::specific_measure<T, Ratio, U1>& i_left, const measure<T, U2>& i_right)
+	{
+		return measure<T, U1>(i_left) * i_right;
+	}
+
+	template<typename T, typename U1, typename U2, typename Ratio1, typename Ratio2>
+	measure<T, typename unit::mult<U1, U2>::type> operator* (const unit::specific_measure<T, Ratio1, U1>& i_left, const unit::specific_measure<T, Ratio2, U2>& i_right)
+	{
+		return measure<T, U1>(i_left) * measure<T, U2>(i_right);
+	}
+
+	template<typename T, typename U1, typename U2, typename Ratio>
+	measure<T, typename unit::div<U1, U2>::type> operator/ (const measure<T, U1>& i_left, const unit::specific_measure<T, Ratio, U2>& i_right)
+	{
+		return i_left / measure<T, U2>(i_right);
+	}
+
+	template<typename T, typename U1, typename U2, typename Ratio>
+	measure<T, typename unit::div<U1, U2>::type> operator/ (const unit::specific_measure<T, Ratio, U1>& i_left, const measure<T, U2>& i_right)
+	{
+		return measure<T, U1>(i_left) / i_right;
+	}
+
+	template<typename T, typename U1, typename U2, typename Ratio1, typename Ratio2>
+	measure<T, typename unit::div<U1, U2>::type> operator/ (const unit::specific_measure<T, Ratio1, U1>& i_left, const unit::specific_measure<T, Ratio2, U2>& i_right)
+	{
+		return measure<T, U1>(i_left) / measure<T, U2>(i_right);
 	}
 
 	namespace si

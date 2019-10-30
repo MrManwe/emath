@@ -132,13 +132,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\code\tests\measure_base.cpp" />
-    <ClCompile Include="..\..\code\tests\mtl_vec_base.cpp" />
+    <ClCompile Include="..\..\code\tests\vec_base.cpp" />
     <ClCompile Include="..\..\code\tests\main.cpp" />
     <ClCompile Include="..\..\code\tests\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\..\code\tests\vec_advanced.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\tests\pch.h" />

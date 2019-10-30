@@ -3,8 +3,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\code\tests\main.cpp" />
     <ClCompile Include="..\..\code\tests\pch.cpp" />
-    <ClCompile Include="..\..\code\tests\mtl_vec_base.cpp" />
     <ClCompile Include="..\..\code\tests\measure_base.cpp" />
+    <ClCompile Include="..\..\code\tests\vec_advanced.cpp" />
+    <ClCompile Include="..\..\code\tests\vec_base.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\tests\pch.h" />

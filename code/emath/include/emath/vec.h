@@ -183,3 +183,39 @@ inline auto operator* (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T
 	typename detail:: template dot<T1, T2, Dim, Dim - 1> dotter;
 	return dotter(i_v1, i_v2);
 }
+
+template<size_t Dim, typename T1, typename T2>
+inline auto operator* (const emath::vec <Dim,T1>& i_v, const T2& i_scalar)
+{
+	using R = decltype(std::declval<T1>() * std::declval<T2>());
+	emath::vec<Dim, R> result;
+	for (size_t i = 0; i < Dim; ++i)
+	{
+		result[i] = i_v[i] * i_scalar;
+	}
+	return result;
+}
+
+template<size_t Dim, typename T1, typename T2>
+inline auto operator* (const T2& i_scalar, const emath::vec <Dim, T1>& i_v)
+{
+	using R = decltype(std::declval<T2>() * std::declval<T1>());
+	emath::vec<Dim, R> result;
+	for (size_t i = 0; i < Dim; ++i)
+	{
+		result[i] = i_scalar * i_v[i];
+	}
+	return result;
+}
+
+template<size_t Dim, typename T1, typename T2>
+inline auto operator/ (const emath::vec <Dim, T1>& i_v, const T2& i_scalar)
+{
+	using R = decltype(std::declval<T1>() / std::declval<T2>());
+	emath::vec<Dim, R> result;
+	for (size_t i = 0; i < Dim; ++i)
+	{
+		result[i] = i_v[i] / i_scalar;
+	}
+	return result;
+}
