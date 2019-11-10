@@ -31,5 +31,11 @@
     <ClInclude Include="..\..\code\emath\include\emath\unit.h">
       <Filter>include\emath</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\code\emath\include\emath\mat.h">
+      <Filter>include\emath</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\code\emath\include\emath\detail\mat_impl.h">
+      <Filter>include\emath\detail</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

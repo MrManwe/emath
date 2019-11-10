@@ -6,6 +6,7 @@
     <ClCompile Include="..\..\code\tests\measure_base.cpp" />
     <ClCompile Include="..\..\code\tests\vec_advanced.cpp" />
     <ClCompile Include="..\..\code\tests\vec_base.cpp" />
+    <ClCompile Include="..\..\code\tests\mat_base.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\tests\pch.h" />
