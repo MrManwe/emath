@@ -1,6 +1,7 @@
 #pragma once
 #include <utility>
 #include "detail/vec_impl.h"
+
 namespace emath
 {
 	template<size_t Dim, typename T>
@@ -180,7 +181,7 @@ inline auto operator* (const emath::vec<1, T1> & i_v1, const emath::vec<1, T2> &
 template<size_t Dim, typename T1, typename T2>
 inline auto operator* (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T2> & i_v2)
 {
-	typename detail:: template dot<T1, T2, Dim, Dim - 1> dotter;
+	emath::detail::dot<T1, T2, Dim, Dim - 1> dotter;
 	return dotter(i_v1, i_v2);
 }
 
