@@ -216,4 +216,30 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_dot_01, Type, vector_types, emathCoreFixtu
 	BOOST_TEST_REQUIRE(eq);
 }
 
+
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_dot_02, Type, vector_types, emathCoreFixture)
+{
+	using T = typename Type::first_type;
+	const size_t Dim = Type::second_type::Dim;
+	std::array<T, Dim> data1;
+	std::array<T, Dim> data2;
+
+	decltype(std::declval<T>() * std::declval<T>()) result = T(0) * T(0);
+
+	for (size_t i = 0; i < Dim; ++i)
+	{
+		data1[i] = T(i);
+		data2[i] = T(i);
+
+		auto simpleProd = T(i) * T(i);
+		result = result + simpleProd;
+	}
+
+	vec<Dim, T> v1(data1);
+	vec<Dim, T> v2(data2);
+	auto dotProduct = dot(v1, v2);
+	bool eq = (dotProduct == result);
+	BOOST_TEST_REQUIRE(eq);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

@@ -51,6 +51,15 @@ BOOST_FIXTURE_TEST_CASE(test_type_div_01, emathAdvancedeVec)
 	}
 }
 
+BOOST_FIXTURE_TEST_CASE(test_type_dot_01, emathAdvancedeVec)
+{
+	vec<3, si::distance> v1 = vec<3, si::distance>(si::meters(2.0f), si::meters(2.0f), si::meters(2.0f));
+	vec<3, si::time> v2 = vec<3, si::time>(si::seconds(2.0f), si::seconds(2.0f), si::seconds(2.0f));
+	measure<float, unit::si<1, 1, 0>> dot = v1 * v2;
+	float raw = dot.get<unit::specific_measure<float, std::ratio<1, 1>, unit::si<1, 1, 0>>>();
+	BOOST_TEST_REQUIRE(raw == 12.0f);
+}
+
 /*
 BOOST_FIXTURE_TEST_CASE(test_diff_01, Type, vector_types, emathAdvancedeVec)
 {

@@ -186,6 +186,13 @@ inline auto operator* (const emath::vec<Dim, T1> & i_v1, const emath::vec<Dim, T
 }
 
 template<size_t Dim, typename T1, typename T2>
+inline auto dot (const emath::vec<Dim, T1>& i_v1, const emath::vec<Dim, T2>& i_v2)
+{
+	emath::detail::dot<T1, T2, Dim, Dim - 1> dotter;
+	return dotter(i_v1, i_v2);
+}
+
+template<size_t Dim, typename T1, typename T2>
 inline auto operator* (const emath::vec <Dim,T1>& i_v, const T2& i_scalar)
 {
 	using R = decltype(std::declval<T1>() * std::declval<T2>());

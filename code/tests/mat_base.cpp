@@ -66,8 +66,86 @@ BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_assignment, Type, mat_types, emathCoreFixt
 			BOOST_TEST_REQUIRE(m[i][j] == T(i) * T(Cols) + T(j));
 		}
 	}
-
 }
 
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_sum, Type, mat_types, emathCoreFixture)
+{
+	using T = typename Type::first_type;
+	const size_t Rows = Type::second_type::first_type::Dim;
+	const size_t Cols = Type::second_type::second_type::Dim;
+	mat<Rows, Cols, T> m1;
+	mat<Rows, Cols, T> m2;
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Cols; ++j)
+		{
+			m1[i][j] = T(i) * T(Cols) + T(j);
+			m2[i][j] = T(i) * T(Cols * 2) + T(j);
+		}
+	}
 
+	auto result = m1 + m2;
+
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Cols; ++j)
+		{
+			BOOST_TEST_REQUIRE(result[i][j] == T(i) * T(Cols) + T(j) + T(i) * T(Cols * 2) + T(j));
+		}
+	}
+}
+
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_diff, Type, mat_types, emathCoreFixture)
+{
+	using T = typename Type::first_type;
+	const size_t Rows = Type::second_type::first_type::Dim;
+	const size_t Cols = Type::second_type::second_type::Dim;
+	mat<Rows, Cols, T> m1;
+	mat<Rows, Cols, T> m2;
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Cols; ++j)
+		{
+			m1[i][j] = T(i) * T(Cols) + T(j);
+			m2[i][j] = T(i) * T(Cols * 2) + T(j);
+		}
+	}
+
+	auto result = m1 - m2;
+
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Cols; ++j)
+		{
+			BOOST_TEST_REQUIRE(result[i][j] == (T(i) * T(Cols) + T(j)) - (T(i) * T(Cols * 2) + T(j)));
+		}
+	}
+}
+
+BOOST_FIXTURE_TEST_CASE_TEMPLATE(test_mult, Type, mat_types, emathCoreFixture)
+{
+	using T = typename Type::first_type;
+	const size_t Rows = Type::second_type::first_type::Dim;
+	const size_t Cols = Type::second_type::second_type::Dim;
+	mat<Rows, Cols, T> m1;
+	mat<Cols, Rows, T> m2;
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Cols; ++j)
+		{
+			m1[i][j] = T(i);
+			m2[j][i] = T(i*2);
+		}
+	}
+
+	auto result = m1 * m2;
+
+	for (size_t i = 0; i < Rows; ++i)
+	{
+		for (size_t j = 0; j < Rows; ++j)
+		{
+			BOOST_TEST_REQUIRE(result[i][j] == T(i) * T(j*2) * Cols);
+		}
+	}
+}
 BOOST_AUTO_TEST_SUITE_END()
